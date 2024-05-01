@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Assistant System (MAS) - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <div class="topnav">
+        <!-- Add link to contact page -->
+        <img src="{{ url_for('static', filename='img/favicon.png') }}" alt="MAS Logo">
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+        <a href="{{ url_for('form') }}">Form</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a class="active" href="#home">Home</a>
+
+    </div>
+
+    <div class="container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/favicon.png') }}" alt="MAS Logo">
+        </div>
+        <h2>Welcome to Medical Assistant System (MAS)</h2>
+        <form id="uploadForm" class="form" method="POST" action="{{ url_for('home') }}" enctype="multipart/form-data">
+            <h3>Upload Results</h3>
+            <h4>Skin Image</h4>
+            <input type="file" id="skinImage" name="skinImage" accept="image/*" required>
+            <h4>Eye Image</h4>
+            <input type="file" id="eyeImage" name="eyeImage" accept="image/*" required>
+            <h4>Upload Audio</h4>
+            <input type="file" id="audioFile" name="audioFile" accept="audio/*" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
